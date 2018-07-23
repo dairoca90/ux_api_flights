@@ -1,0 +1,25 @@
+#%RAML 1.0
+baseUri: http://localhost:8081/experiencieAPIVuelos
+title: Experience Vuelos API
+
+/flights:
+  description: return all the flights 
+  get:
+    queryParameters:
+      destino:
+        type: string
+        required: false
+        enum: [PDX,LAX,CLE]
+    responses:
+      200:
+        body:
+          application/json:
+            example: {
+              "message" : "obteniendo todos los vuelos"
+            }
+      400:
+        body:
+          application/json:
+            example: {
+              "message": "No se encontraron vuelos"
+            }
